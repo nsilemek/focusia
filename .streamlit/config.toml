@@ -1,0 +1,12 @@
+[theme]
+primaryColor = "#4338CA"                # lacivert-mor buton
+backgroundColor = "#E0E7FF"             # yumuşak indigo arka plan
+secondaryBackgroundColor = "#EDE9FE"    # açık mor kartlar
+textColor = "#111827"
+font = "sans serif"
+
+
+[server]
+headless = true
+enableCORS = false
+enableXsrfProtection = false
