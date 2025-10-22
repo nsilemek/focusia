@@ -64,6 +64,41 @@ focusia/
 └─ README.md             → Proje dokümantasyonu
 ```
 
+##  Veri Seti: `focus_tips.json`
+
+Bu dosya, **Focusia**'nın öneri motorunun temel bilgi kaynağıdır.  
+Her satır, bir **odaklanma tekniği** veya **dijital denge stratejisini** temsil eder.  
+Uygulama, kullanıcının durumuna göre bu veri setinden uygun içerikleri seçer ve RAG (Retrieval-Augmented Generation) yöntemiyle bağlamsal öneriler üretir.
+
+---
+
+### Dosya Konumu  
+`focus_tips.json`
+
+### Veri Yapısı  
+```json
+[
+  {
+    "topic": "Pomodoro Tekniği",
+    "content": "25 dakika boyunca tek bir işe odaklan, ardından 5 dakika kısa ara ver. 4 döngüden sonra uzun mola al."
+  },
+  {
+    "topic": "Dijital Detoks",
+    "content": "Günün bir saatini tamamen çevrimdışı geçir. Telefonu başka odada bırak, bildirimleri kapat."
+  }
+]
+```
+## Kullanım Akışı
+
+● data_loader.py dosyası, bu JSON verilerini okuyarak LangChain Document nesnelerine dönüştürür.  
+
+● Veriler, Chroma vektör veritabanına gömülür.  
+
+● Kullanıcı, örneğin “Sürekli telefona bakıyorum” gibi bir durum yazdığında, RAG sistemi bu veri setinden en alakalı içerikleri getirir.  
+
+● rag_pipeline.py, getirilen bağlamı modele iletir ve model (örnek: Qwen2.5-7B-Instruct) kısa Türkçe öneriler + bir mini egzersiz üretir.  
+
+
 ##  Arayüz Teması
 
 Arka plan	Lacivert → mor geçişli gradient  
